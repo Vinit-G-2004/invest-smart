@@ -43,5 +43,6 @@ def prediction():
         return render_template('result.html', stock_name=stock_name, predicted_value=predicted_value, investment_value=investment_value)
     return render_template('prediction.html', stocks=STOCKS)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True, host='0.0.0.0', port=5000)
+
