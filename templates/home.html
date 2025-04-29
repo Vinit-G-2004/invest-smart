@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InvestSmart - Home</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+    <div class="logo">InvestSmart</div>
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/prediction">Prediction</a> <!-- Link to Prediction Page -->
+    </div>
+</nav>
+
+<!-- Company Table -->
+<div class="container">
+    <h1>Stock Market Data</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Company</th>
+                <th>Current Price ($)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for company, price in stocks.items() %}
+            <tr>
+                <td>{{ company }}</td>
+                <td>{{ price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/prediction" class="predict-btn">Predict Your Investment</a>
+</div>
+
+</body>
+</html>

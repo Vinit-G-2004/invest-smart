@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Page</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+    <div class="logo">InvestSmart</div>
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/prediction">Prediction</a>
+    </div>
+</nav>
+
+<!-- Prediction Form -->
+<div class="container">
+    <h1>Predict Your Investment</h1>
+    <form action="/prediction" method="POST">
+        <label for="stock_name">Choose a stock:</label>
+        <select name="stock_name" id="stock_name" required>
+            {% for company in stocks.keys() %}
+                <option value="{{ company }}">{{ company }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="investment_value">Enter your investment amount ($):</label>
+        <input type="number" name="investment_value" id="investment_value" required>
+
+        <button type="submit">Predict</button>
+    </form>
+</div>
+
+</body>
+</html>

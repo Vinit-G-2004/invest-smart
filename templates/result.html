@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+    <div class="logo">InvestSmart</div>
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/prediction">Prediction</a>
+    </div>
+</nav>
+
+<!-- Result Section -->
+<div class="container">
+    <h1>Prediction Result</h1>
+
+    <p><strong>Stock Name:</strong> {{ stock_name }}</p>
+    <p><strong>Investment Value ($):</strong> {{ investment_value }}</p>
+    <p><strong>Predicted Value ($):</strong> {{ predicted_value }}</p>
+
+    <div class="graph-container">
+        <!-- Graph visualization can be added here using libraries like Chart.js or Plotly -->
+    </div>
+
+    <a href="/prediction" class="predict-btn">Try Another Prediction</a>
+</div>
+
+</body>
+</html>
