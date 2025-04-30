@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import matplotlib.pyplot as plt 
 
 app = Flask(__name__)
 
@@ -40,6 +41,20 @@ def prediction():
         stock_name = request.form['stock_name']
         investment_value = float(request.form['investment_value'])
         predicted_value = STOCKS.get(stock_name, 0) * investment_value
+        # graph
+        x = [1, 2, 3, 4, 5]
+        y = [investment_value * i for i in x]  # Just an example growth
+        
+        plt.figure()
+        plt.plot(x, y, marker='o')
+        plt.title(f"Investment Growth for {stock_name}")
+        plt.xlabel("Time (Years)")
+        plt.ylabel("Value")
+        plt.grid(True)
+        
+        # Save the graph
+        plt.savefig('static/graph.png')
+        plt.close()
         return render_template('result.html', stock_name=stock_name, predicted_value=predicted_value, investment_value=investment_value)
     return render_template('prediction.html', stocks=STOCKS)
 
